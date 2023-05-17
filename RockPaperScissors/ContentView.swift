@@ -14,12 +14,12 @@ struct ContentView: View {
     @State var botChoice = Int.random(in:0...2)
 
     @State var gameOutcome: String = ""
-    @State var invertedGameOutcome: String  = "Not started"
+    @State var invertedGameOutcome: String  = ""
     let moves = ["Rock", "Paper", "Scissors"]
     //array within array for outcomes of rock, paper, scissors
     //TODO: Add more comments
     let gameRule = [[-1,1,0],
-                    [1,-2,2],
+                    [1,-1,2],
                     [0,2,-1]]
     
     let losingGameRule = [[-1, 0, 2],
@@ -79,6 +79,7 @@ struct ContentView: View {
         switch result {
         case -1:
             winOrLose.toggle()
+            botChoice = Int.random(in:0...2)
             return "Tie game"
         case 0:
             if droidChoice == 0 {
@@ -117,7 +118,7 @@ struct ContentView: View {
                 return "Correct! Scissors wins."
             }
         default:
-            return "Error"
+            return "Error 1"
         }
     }
     
@@ -130,6 +131,7 @@ struct ContentView: View {
         switch result {
         case -1:
             winOrLose.toggle()
+            botChoice = Int.random(in:0...2)
             return "Tie game"
         case 0:
             if humanChoice == 0 {
@@ -168,7 +170,7 @@ struct ContentView: View {
                 return "Wrong! Scissors loses."
             }
         default:
-            return "Error"
+            return "Error 2"
         }
     }
     
